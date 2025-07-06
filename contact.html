@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Marvellous Lijoka | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </head>
+
+  <body>
+    <div class="sidebar">
+        <img class="profile-picture" src="images/profile picture.jpg">
+          <div class="icon-sidebar">
+            <div><a href="index.html">Home</a></div>
+            <div><a href="about me.html">About Me</a></div>
+            <div><a href="resume.html">Resume</a></div>
+            <div><a href="services.html">Services</a></div>
+            <div><a href="portfolio.html">Portfolio</a></div>
+            <div><a class="active">Contact</a></div>
+          </div>
+    </div>
+
+    <section class="contact" id="contact">
+  <h2>Contact Me</h2>
+  <p>If you have any questions or just want to say hello, feel free to reach out!</p>
+
+  <form id="contact-form" class="contact-form">
+    <div class="form-group">
+      <input type="text" name="name" placeholder="Your Name" required>
+    </div>
+    <div class="form-group">
+      <input type="email" name="_replyto" placeholder="Your Email" required>
+    </div>
+    <div class="form-group">
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    </div>
+   
+    <button type="submit">Send Message</button>
+    <div id="popup" class="popup">Message sent successfully! 🚀</div>
+  </form>
+
+  <div class="contact-info">
+    <p>Email: <a href="mailto:Lijokamarvellous1@gmail.com">Lijokamarvellous1@gmail.com</a></p>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/marvellouslijoka" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:Lijokamarvellous1@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/Marvellous47" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</section>
+
+  </body>
+
+  <!-- Include EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  // Initialize EmailJS with your public key
+  (function () {
+    emailjs.init("xVcgaXlzCQlY5O-WN"); // Public Key
+  })();
+
+  // Handle contact form submission
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contact-form");
+    const popup = document.getElementById("popup");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Send form using EmailJS
+      emailjs.sendForm("service_8fck1m8", "template_ni4vq6a", form)
+        .then(() => {
+          // Show success popup
+          popup.style.display = "block";
+          setTimeout(() => {
+            popup.style.display = "none";
+          }, 3000);
+
+          // Reset form fields
+          form.reset();
+        })
+        .catch((error) => {
+          alert("Something went wrong. Please try again.");
+          console.error("EmailJS Error:", error);
+        });
+    });
+  });
+</script>
+
+</html>

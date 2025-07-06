@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Marvellous Lijoka | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </head>
+
+  <body>
+    <div class="sidebar">
+        <img class="profile-picture" src="images/profile picture.jpg">
+          <div class="icon-sidebar">
+            <div><a href="index.html">Home</a></div>
+            <div><a href="about me.html">About Me</a></div>
+            <div><a href="resume.html">Resume</a></div>
+            <div><a class="active">Services</a></div>
+            <div><a href="portfolio.html">Portfolio</a></div>
+            <div><a href="contact.html">Contact</a></div>
+          </div>
+    </div>
+
+    <section class="services" id="services">
+      <h2>My Services</h2>
+      <div class="services-container">
+        <a href="#portfolio" class="service-box">
+          <i class="fas fa-laptop-code"></i>
+          <h3>Web Design</h3>
+          <p>Responsive, modern websites using HTML, CSS & JS. Optimized for all screens.</p>
+        </a>
+        <a href="#portfolio" class="service-box">
+          <i class="fas fa-paint-brush"></i>
+          <h3>Graphics Design</h3>
+          <p>Designing logos, flyers, banners & social posts using Figma, Canva.</p>
+        </a>
+        <a href="#portfolio" class="service-box">
+          <i class="fas fa-video"></i>
+          <h3>Video Editing</h3>
+          <p>Editing short videos, reels, ads with smooth transitions & effects.</p>
+        </a>
+      </div>
+    </section>
+
+  </body>
+  <script>
+    // Simple scroll-in animation
+    const serviceBoxes = document.querySelectorAll('.service-box');
+
+    const revealOnScroll = () => {
+      serviceBoxes.forEach(box => {
+        const boxTop = box.getBoundingClientRect().top;
+        if (boxTop < window.innerHeight - 50) {
+          box.style.opacity = '1';
+          box.style.transform = 'translateY(0)';
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</html>
